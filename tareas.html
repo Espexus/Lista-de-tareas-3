@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="tareas.css">
+    <title>Pomodoro</title>
+</head>
+<body>
+    <h1>Bienvenido a mi lista de tareas, disfruta!</h1>
+    <section class="wrapper">
+        <section class="cronometros">
+            <div class="cuenta_atras flex">
+                <p class="negrita">Pomodoro</p>
+                <p id="minutos">25</p>
+                <p> : </p>
+                <p id="segundos">00</p>
+            </div>
+            <input type="button" class="boton_cronos" value="Iniciar pomodoro" id="pomodoro_btn">
+            <div class="receso flex">
+                <p class="negrita">Receso</p>
+                <p id="minutos_receso">5</p>
+                <p>:</p>
+                <p id="segundos_receso">00</p>
+            </div>
+            <input type="button" class="boton_cronos" value="Iniciar receso" id="receso_btn">
+            <div class="contador flex">
+                <p class="negrita">Pomodoros hechos hoy:</p>
+                <p id="cuenta">0</p>
+            </div>
+        </section>
+
+        <section class="lista_tareas">
+            <div class="datos">
+                <form action="" method="post" class="formulario">
+                    <input type="text" class="imput" id="tarea_incluida" placeholder="¿Qué quieres hacer?">
+                    <input type="button" class="boton" id="agregar" value="Agregar tarea">
+                </form>
+            </div>
+            <div class="caja_tareas">
+                <ul class="lista_de_tareas" id="lista">
+                    <li class="">
+                        <div class="contenido">
+                            <input type="checkbox" class="check">
+                            <p>Bienvenido a la lista amigo, disfruta mi trabajo</p>
+                        </div>
+                        <div>
+                            <img src="equis.png" class="eliminar">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </section>
+
+    <script src="tareas.js"></script>
+</body>
+</html>
