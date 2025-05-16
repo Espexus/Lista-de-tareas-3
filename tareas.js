@@ -11,21 +11,26 @@ let minutos_pomo_contador = 25;
 function pomodoro (){
     activar_pomodoro.disabled = true;
     boton_receso.disabled = true;
-    let segundos_contador = 60;
+        minutos_pomo_contador--;
+        minutos.textContent = String(minutos_pomo_contador).padStart(2, "0");
+
+    let segundos_contador = 59;
+    segundos.textContent = String(segundos_contador).padStart(2, "0");
 
     let intervalo_pomo = setInterval(()=> {
         segundos_contador--;
         segundos.textContent = String(segundos_contador).padStart(2, "0");
 
         if(segundos_contador== 0){
-            minutos_pomo_contador--;
-            minutos.textContent = String(minutos_pomo_contador).padStart(2, "0");
-
             clearInterval(intervalo_pomo);
+
             if (minutos_pomo_contador==0){
                 minutos_pomo_contador =25;
 
                 minutos.textContent = String(minutos_pomo_contador).padStart(2, "0");
+
+                segundos_contador = 0;
+                segundos.textContent = String(segundos_contador).padStart(2, "0");
 
                 contado++;
                 cuenta.textContent = contado;
@@ -35,7 +40,7 @@ function pomodoro (){
 
                 return;
             }
-            setTimeout(pomodoro, 0);
+            setTimeout(pomodoro, 1000);
         }
     },1000)
 }
@@ -51,27 +56,34 @@ let minutos_receso_contador = 5;
 function receso (){
     activar_pomodoro.disabled = true;
     boton_receso.disabled = true;
+        minutos_receso_contador--;
+        minutos_receso.textContent = String(minutos_receso_contador).padStart(2, "0");
 
-    let segundos_contador_receso = 60;
+    let segundos_contador_receso = 59;
+    segundos_receso.textContent = String(segundos_contador_receso).padStart(2, "0");
 
     let intervalo_receso = setInterval(()=> {
+
+
         segundos_contador_receso--;
         segundos_receso.textContent = String(segundos_contador_receso).padStart(2, "0");
 
         if(segundos_contador_receso== 0){
-            minutos_receso_contador--;
-            minutos_receso.textContent = String(minutos_receso_contador).padStart(2, "0");
+
             clearInterval(intervalo_receso);
 
             if (minutos_receso_contador==0){
                 minutos_receso_contador =5;
                 minutos_receso.textContent = String(minutos_receso_contador).padStart(2, "0");
 
+                segundos_contador_receso = 0;
+                segundos_receso.textContent = String(segundos_contador_receso).padStart(2, "0");
+
                 activar_pomodoro.disabled = false;
                 boton_receso.disabled = false;
                 return;
             }
-            setTimeout(receso, 0);
+            setTimeout(receso, 1000);
         }
     },1000)
 }
